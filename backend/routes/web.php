@@ -18,3 +18,9 @@ Route::get('/', function () {
 });
 
 Route::get('/test', 'UserController@createUser');
+
+Route::get('/test1', 'UserController@deleteUser');
+
+Route::get('/test2', 'UserController@updateUser');
+
+

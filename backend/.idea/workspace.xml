@@ -20,12 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91d120ff-9079-4251-9a4d-654a8360e7c8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Repositories/EloquentRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Repositories/RepositoryInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Repositories/UserRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/user.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_21_021517_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_21_021517_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -162,7 +158,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.build" />
+    <property name="settings.editor.selected.configurable" value="preferences.customizations" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -186,7 +182,8 @@
       <workItem from="1597909236418" duration="7886000" />
       <workItem from="1597919309172" duration="1398000" />
       <workItem from="1597971543509" duration="5390000" />
-      <workItem from="1597977338626" duration="9807000" />
+      <workItem from="1597977338626" duration="9918000" />
+      <workItem from="1597992220363" duration="2419000" />
     </task>
     <servers />
   </component>
@@ -214,10 +211,10 @@
       <screen x="64" y="27" width="1302" height="741" />
     </state>
     <state x="510" y="323" width="399" height="156" key="NewPhpFileDialog/64.27.1302.741@64.27.1302.741" timestamp="1597981548405" />
-    <state x="193" y="27" width="1125" height="741" key="SettingsEditor" timestamp="1597985774231">
+    <state x="193" y="27" width="1125" height="741" key="SettingsEditor" timestamp="1597994178596">
       <screen x="64" y="27" width="1302" height="741" />
     </state>
-    <state x="193" y="27" width="1125" height="741" key="SettingsEditor/64.27.1302.741@64.27.1302.741" timestamp="1597985774231" />
+    <state x="193" y="27" width="1125" height="741" key="SettingsEditor/64.27.1302.741@64.27.1302.741" timestamp="1597994178596" />
     <state x="329" y="89" width="762" height="623" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1597979281325">
       <screen x="64" y="27" width="1302" height="741" />
     </state>
@@ -226,9 +223,9 @@
       <screen x="64" y="27" width="1302" height="741" />
     </state>
     <state x="457" y="275" width="616" height="284" key="org.intellij.images.editor.actions.BackgroundImageDialog/64.27.1302.741@64.27.1302.741" timestamp="1597915964308" />
-    <state x="378" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1597973099799">
+    <state x="378" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1597994266049">
       <screen x="64" y="27" width="1302" height="741" />
     </state>
-    <state x="378" y="89" width="672" height="678" key="search.everywhere.popup/64.27.1302.741@64.27.1302.741" timestamp="1597973099799" />
+    <state x="378" y="89" width="672" height="678" key="search.everywhere.popup/64.27.1302.741@64.27.1302.741" timestamp="1597994266049" />
   </component>
 </project>
