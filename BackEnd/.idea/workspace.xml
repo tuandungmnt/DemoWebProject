@@ -1,15 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="91d120ff-9079-4251-9a4d-654a8360e7c8" name="Default Changelist" comment="" />
+    <list default="true" id="91d120ff-9079-4251-9a4d-654a8360e7c8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_19_000000_create_failed_jobs_table.php" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -117,6 +144,7 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1gM0cgM8XXl8NslGsUXG1KiHZRy" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -125,7 +153,14 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -141,11 +176,48 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1597909235267</updated>
-      <workItem from="1597909236418" duration="1322000" />
+      <workItem from="1597909236418" duration="7886000" />
+      <workItem from="1597919309172" duration="1398000" />
+      <workItem from="1597971543509" duration="5390000" />
+      <workItem from="1597977338626" duration="773000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="526" y="94" width="345" height="610" key="#com.intellij.ide.ui.customization.CustomizableActionsPanel.FindAvailableActionsDialog" timestamp="1597916437566">
+      <screen x="64" y="27" width="1302" height="741" />
+    </state>
+    <state x="526" y="94" width="345" height="610" key="#com.intellij.ide.ui.customization.CustomizableActionsPanel.FindAvailableActionsDialog/64.27.1302.741@64.27.1302.741" timestamp="1597916437566" />
+    <state x="510" y="323" width="399" height="156" key="NewPhpFileDialog" timestamp="1597919556827">
+      <screen x="64" y="27" width="1302" height="741" />
+    </state>
+    <state x="510" y="323" width="399" height="156" key="NewPhpFileDialog/64.27.1302.741@64.27.1302.741" timestamp="1597919556827" />
+    <state x="193" y="27" width="1125" height="741" key="SettingsEditor" timestamp="1597973072550">
+      <screen x="64" y="27" width="1302" height="741" />
+    </state>
+    <state x="193" y="27" width="1125" height="741" key="SettingsEditor/64.27.1302.741@64.27.1302.741" timestamp="1597973072550" />
+    <state x="457" y="275" width="616" height="284" key="org.intellij.images.editor.actions.BackgroundImageDialog" timestamp="1597915964308">
+      <screen x="64" y="27" width="1302" height="741" />
+    </state>
+    <state x="457" y="275" width="616" height="284" key="org.intellij.images.editor.actions.BackgroundImageDialog/64.27.1302.741@64.27.1302.741" timestamp="1597915964308" />
+    <state x="378" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1597973099799">
+      <screen x="64" y="27" width="1302" height="741" />
+    </state>
+    <state x="378" y="89" width="672" height="678" key="search.everywhere.popup/64.27.1302.741@64.27.1302.741" timestamp="1597973099799" />
   </component>
 </project>
