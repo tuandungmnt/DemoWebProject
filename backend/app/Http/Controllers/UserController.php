@@ -27,18 +27,22 @@ class UserController extends Controller
     }
 
     public function deleteUser() {
-        $this->userRepo->delete(5);
+        $this->userRepo->delete(8);
         return "delete";
     }
 
     public function updateUser() {
         $user = [
-            User::_NAME => "Quynh Trang",
-            User::_AGE => 23,
+            User::_NAME => "Q",
+            User::_AGE => 24,
             User::_PHONE => "0949999999",
             User::_EMAIL => "xoai@gmail.com"
         ];
-        $this->userRepo->update(2, $user);
+        $this->userRepo->update(3, $user);
         return "la";
+    }
+
+    public function readUser() {
+        return $this->userRepo->readUserInfo(6);
     }
 }

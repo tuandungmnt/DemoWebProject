@@ -22,6 +22,7 @@
     <list default="true" id="91d120ff-9079-4251-9a4d-654a8360e7c8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/UserRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -184,6 +185,8 @@
       <workItem from="1597971543509" duration="5390000" />
       <workItem from="1597977338626" duration="9918000" />
       <workItem from="1597992220363" duration="2419000" />
+      <workItem from="1597994696062" duration="2746000" />
+      <workItem from="1597997634836" duration="13000" />
     </task>
     <servers />
   </component>

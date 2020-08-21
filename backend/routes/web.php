@@ -13,14 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', function () { return 'welcome'; });
 
-Route::get('/test', 'UserController@createUser');
+Route::get('/create', 'UserController@createUser');
 
-Route::get('/test1', 'UserController@deleteUser');
+Route::get('/delete', 'UserController@deleteUser');
 
-Route::get('/test2', 'UserController@updateUser');
+Route::get('/update', 'UserController@updateUser');
 
-
+Route::get('/read','UserController@readUser');
