@@ -1,7 +1,21 @@
 <h1> Test API!!! </h1>
 
+<p>
+  <span (click)="callAPI()">Create</span>
+  <span (click)="callAPI()">Update</span>
+  <span (click)="callAPI()">Find</span>
+  <span (click)="callAPI()">ViewList</span>
+</p>
+
 <div class = play-container>
   <p>
-    <span (click)="callAPI()">CallRead</span>
+    Enter customer ID:
   </p>
+  <p>
+    <input type="text" [(ngModel)]="inputId">
+    <span (click)="callAPI()">Find</span>
+  </p>
+  <ng-template [ngIf]="name.length>0">
+    <p>Name: {{name}}</p>
+  </ng-template>
 </div>

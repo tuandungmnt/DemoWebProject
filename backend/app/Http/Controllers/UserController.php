@@ -4,15 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Repositories\UserRepository;
+use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
     private $userRepo;
+    private $request;
 
     public function __construct(
-        UserRepository $userRepo
+        UserRepository $userRepo,
+        Request $request
     ) {
         $this->userRepo = $userRepo;
+        $this->request = $request;
     }
 
     public function createUser() {
@@ -43,6 +47,6 @@ class UserController extends Controller
     }
 
     public function readUser() {
-        return $this->userRepo->readUserInfo(6);
+        return $this->userRepo->readUserInfo($this->request->input('id'));
     }
 }

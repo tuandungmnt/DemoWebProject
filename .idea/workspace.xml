@@ -20,11 +20,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="89941313-2dcc-48a6-bfda-5c0ac0d4d9eb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/project.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Repositories/AgentJobRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Repositories/AgentRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Repositories/JobRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Models/User.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2020_08_21_021517_create_users_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app-routing.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/list/list.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/list/list.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/list/list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/list/list.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/list/list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/list/list.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -162,6 +171,11 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/frontend/node_modules/typescript/lib" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/backend/app/Models" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -173,7 +187,8 @@
       <workItem from="1598000812311" duration="98000" />
       <workItem from="1598000930644" duration="6089000" />
       <workItem from="1598080816597" duration="628000" />
-      <workItem from="1598250926931" duration="1480000" />
+      <workItem from="1598250926931" duration="12775000" />
+      <workItem from="1598316882210" duration="7448000" />
     </task>
     <servers />
   </component>
@@ -193,6 +208,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="445" y="117" width="529" height="568" key="NewPhpClassDialog" timestamp="1598337656032">
+      <screen x="64" y="27" width="1302" height="741" />
+    </state>
+    <state x="445" y="117" width="529" height="568" key="NewPhpClassDialog/64.27.1302.741@64.27.1302.741" timestamp="1598337656032" />
     <state x="510" y="323" width="399" height="156" key="NewPhpFileDialog" timestamp="1598004980905">
       <screen x="64" y="27" width="1302" height="741" />
     </state>

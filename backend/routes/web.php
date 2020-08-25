@@ -15,10 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () { return 'welcome'; });
 
-Route::get('/create', 'UserController@createUser');
+Route::get('/api/create', 'UserController@createUser');
 
-Route::get('/delete', 'UserController@deleteUser');
+Route::get('/api/delete', 'UserController@deleteUser');
 
-Route::get('/update', 'UserController@updateUser');
+Route::get('/api/update', 'UserController@updateUser');
 
-Route::get('/read','UserController@readUser');
+Route::get('/api/read','UserController@readUser');
