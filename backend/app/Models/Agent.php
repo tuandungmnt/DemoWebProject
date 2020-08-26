@@ -9,7 +9,7 @@ class Agent extends Model
     protected $table = self::TABLE;
     public $timestamps = false;
 
-    const TABLE = 'user';
+    const TABLE = 'agent';
 
     const _USERID = 'userid';
     const _USERNAME = 'username';

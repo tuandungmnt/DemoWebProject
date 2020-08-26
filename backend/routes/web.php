@@ -14,11 +14,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () { return 'welcome'; });
+//Agent
+Route::get('/api/create_agent', 'AgentController@createAgent');
 
-Route::get('/api/create', 'UserController@createUser');
+//Job
+Route::get('/api/create_job', 'JobController@createJob');
 
-Route::get('/api/delete', 'UserController@deleteUser');
+Route::get('/api/find_job', 'JobController@findJob');
 
-Route::get('/api/update', 'UserController@updateUser');
+//AgentJob
+Route::get('/api/create_agent_job', 'AgentJobController@createAgentJob');
 
-Route::get('/api/read','UserController@readUser');
+Route::get('/api/find_agent_job', 'AgentJobController@findAgentJob');
+

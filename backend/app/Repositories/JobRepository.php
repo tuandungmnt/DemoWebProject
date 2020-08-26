@@ -11,4 +11,12 @@ class JobRepository extends EloquentRepository
         return Job::class;
     }
 
+    public function findJobName($jobId) {
+        return $this->_model
+            ->select(
+                Job::_JOBNAME
+            )
+            ->where(Job::_JOBID, $jobId)
+            ->first();
+    }
 }

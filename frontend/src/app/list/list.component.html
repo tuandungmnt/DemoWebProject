@@ -1,21 +1,75 @@
-<h1> Test API!!! </h1>
+<h1> {{header}} </h1>
 
 <p>
-  <span (click)="callAPI()">Create</span>
-  <span (click)="callAPI()">Update</span>
-  <span (click)="callAPI()">Find</span>
-  <span (click)="callAPI()">ViewList</span>
+  <span (click)="setScene(1)">Create Agent</span>
+  <span (click)="setScene(2)">Create Job</span>
+  <span (click)="setScene(3)">Add Agent's Job</span>
+  <span (click)="setScene(4)">Show Agent's Job</span>
 </p>
 
 <div class = play-container>
-  <p>
-    Enter customer ID:
-  </p>
-  <p>
-    <input type="text" [(ngModel)]="inputId">
-    <span (click)="callAPI()">Find</span>
-  </p>
-  <ng-template [ngIf]="name.length>0">
-    <p>Name: {{name}}</p>
+  <ng-template [ngIf]="scene == 1">
+    <p>
+      Enter Username:
+      <label>
+        <input type="text" [(ngModel)]="username">
+      </label>
+    </p>
+    <p>
+      Enter Password:
+      <input type="text" [(ngModel)]="password">
+    </p>
+    <p>
+      Enter Phone:
+      <input type="text" [(ngModel)]="phone">
+    </p>
+    <p>
+      Enter Email:
+      <input type="text" [(ngModel)]="email">
+    </p>
+    <span (click)="createAgent()">Create Agent</span>
   </ng-template>
+
+
+  <ng-template [ngIf]="scene == 2">
+    <p>
+      Enter Job Name:
+      <input type="text" [(ngModel)]="jobname">
+    </p>
+    <p>
+      Enter Description:
+      <input type="text" [(ngModel)]="description">
+    </p>
+    <span (click)="createJob()">Create Job</span>
+  </ng-template>
+
+  <ng-template [ngIf]="scene == 3">
+    <p>
+      Enter User ID:
+      <input type="text" [(ngModel)]="userid">
+    </p>
+    <p>
+      Enter Job ID:
+      <input type="text" [(ngModel)]="jobid">
+    </p>
+    <span (click)="createAgentJob()">Create Agent's Job</span>
+  </ng-template>
+
+  <ng-template [ngIf]="scene == 4">
+    <p>
+      Enter User ID:
+      <input type="text" [(ngModel)]="userid">
+    </p>
+    <span (click)="showAgentJob()">Show Agent's Job</span>
+
+    <ng-template [ngIf]="l > 0">
+      <p> List </p>
+    </ng-template>
+    <li *ngFor="let x of jobList">
+      {{ x }}
+    </li>
+  </ng-template>
+
+
+
 </div>
