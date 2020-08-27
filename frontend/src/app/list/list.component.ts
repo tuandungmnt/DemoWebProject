@@ -35,12 +35,6 @@ export class ListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // callAPI() {
-  //   this.http.get<JSON>(this.url+"read?"+"id="+this.inputId).subscribe(data => {
-  //     this.result = JSON.parse(JSON.stringify(data));
-  //   });
-  // }
-
   setScene(x: number) {
     this.scene = x;
     this.header = "TEST API!!!"
@@ -48,25 +42,29 @@ export class ListComponent implements OnInit {
 
   createAgent() {
     this.s = "username=" + this.username + "&password=" + this.password + "&phone=" + this.phone + "&email=" + this.email;
-    this.http.get<JSON>(this.url+"create_agent?"+this.s).subscribe(data => {
-      this.result = JSON.parse(JSON.stringify(data));
-      console.log(data);
-      if (this.result.result == "success") {
-        this.header = "SUCCESS!";
-        this.username = "";
-        this.password = "";
-        this.phone = "";
-        this.email = "";
-      }
-    });
+    this.http.get<JSON>(this.url+"create_agent?"+this.s).subscribe(
+      data => {
+        console.log(data);
+        this.result = JSON.parse(JSON.stringify(data));
+        if (this.result.status == "success") {
+          this.header = "SUCCESS!";
+          this.username = "";
+          this.password = "";
+          this.phone = "";
+          this.email = "";
+        }
+      },
+      error => {
+        console.log(error);
+      });
   }
 
   createJob() {
     this.s = "jobname=" + this.jobname + "&description=" + this.description;
     this.http.get<JSON>(this.url+"create_job?"+this.s).subscribe(data => {
-      this.result = JSON.parse(JSON.stringify(data));
       console.log(data);
-      if (this.result.result == "success") {
+      this.result = JSON.parse(JSON.stringify(data));
+      if (this.result.message == "success") {
         this.header = "SUCCESS!";
         this.jobname = "";
         this.description = "";
@@ -77,9 +75,9 @@ export class ListComponent implements OnInit {
   createAgentJob() {
     this.s = "userid=" + this.userid + "&jobid=" + this.jobid;
     this.http.get<JSON>(this.url+"create_agent_job?"+this.s).subscribe(data => {
-      this.result = JSON.parse(JSON.stringify(data));
       console.log(data);
-      if (this.result.result == "success") {
+      this.result = JSON.parse(JSON.stringify(data));
+      if (this.result.message == "success") {
         this.header = "SUCCESS!";
         this.userid = "";
         this.jobid = "";
@@ -89,10 +87,16 @@ export class ListComponent implements OnInit {
 
   showAgentJob() {
     this.s = "userid=" + this.userid;
-    this.http.get<string[]>(this.url+"find_agent_job?"+this.s).subscribe(data => {
-      console.log(data);
-      this.jobList = data;
-      this.l = data.length;
-    });
+    console.log(this.url+"find_agent_job?"+this.s);
+    this.http.get<JSON>(this.url+"find_agent_job?"+this.s).subscribe(
+      data => {
+        console.log(data);
+        this.result = JSON.parse(JSON.stringify(data));
+        this.jobList = this.result.data;
+        this.l = this.jobList.length;
+      },
+      error => {
+        console.log(error);
+      });
   }
 }

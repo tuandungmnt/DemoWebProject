@@ -20,6 +20,9 @@ class AgentController extends Controller
         $this->request = $request;
     }
 
+    /**
+     * @throws ValidationException
+     */
     public function createAgent() {
         $rules = [
             Agent::_USERNAME => 'required',
@@ -28,10 +31,7 @@ class AgentController extends Controller
             Agent::_EMAIL => 'required',
         ];
 
-        try {
-            $this->validate($this->request, $rules);
-        } catch (ValidationException $e) {
-        }
+        $this->validate($this->request, $rules);
 
         $agent = [
             Agent::_USERNAME => $this->request->input(Agent::_USERNAME),
@@ -41,8 +41,32 @@ class AgentController extends Controller
             Agent::_STATUS => 1,
         ];
         $this->agentRepo->create($agent);
-        return [
-            'result' => 'success'
+
+        $this->message = 'Tạo thành công';
+        $this->status = 'success';
+
+        return $this->responseData();
+    }
+    /**
+     * @throws ValidationException
+     */
+    public function findAgent() {
+        $rules = [
+            Agent::_USERID => 'required'
         ];
+
+        $this->validate($this->request, $rules);
+
+        $data = $this->agentRepo->findAgent($this->request->input(Agent::_USERID));
+        if ($data == null) {
+            $this->message = 'Người dùng không tồn tại';
+            $this->status = 'fail';
+            goto next;
+        }
+
+        $this->message = 'Lấy thông tin thành công';
+        $this->status = 'success';
+        next:
+        return $this->responseData($data);
     }
 }

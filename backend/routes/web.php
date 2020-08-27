@@ -17,6 +17,8 @@ Route::get('/', function () { return 'welcome'; });
 //Agent
 Route::get('/api/create_agent', 'AgentController@createAgent');
 
+Route::get('/api/find_agent', 'AgentController@findAgent');
+
 //Job
 Route::get('/api/create_job', 'JobController@createJob');
 

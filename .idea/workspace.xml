@@ -20,15 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="89941313-2dcc-48a6-bfda-5c0ac0d4d9eb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/AgentController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/AgentJobController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/JobController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/UserController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Models/Agent.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/Agent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Models/AgentJob.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/AgentJob.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Models/Job.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/Job.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Repositories/AgentJobRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Repositories/AgentJobRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/AgentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/AgentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/AgentJobController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/AgentJobController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/JobController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/JobController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Repositories/AgentRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Repositories/AgentRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Repositories/JobRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Repositories/JobRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/list/list.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/list/list.component.css" afterDir="false" />
@@ -192,7 +189,8 @@
       <workItem from="1598080816597" duration="628000" />
       <workItem from="1598250926931" duration="12775000" />
       <workItem from="1598316882210" duration="17907000" />
-      <workItem from="1598423543997" duration="10646000" />
+      <workItem from="1598423543997" duration="15200000" />
+      <workItem from="1598509995538" duration="7514000" />
     </task>
     <servers />
   </component>
@@ -215,10 +213,10 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="448" y="155" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1598424359720">
+    <state x="448" y="155" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1598436008638">
       <screen x="64" y="27" width="1302" height="741" />
     </state>
-    <state x="448" y="155" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/64.27.1302.741@64.27.1302.741" timestamp="1598424359720" />
+    <state x="448" y="155" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/64.27.1302.741@64.27.1302.741" timestamp="1598436008638" />
     <state x="445" y="117" width="529" height="568" key="NewPhpClassDialog" timestamp="1598337656032">
       <screen x="64" y="27" width="1302" height="741" />
     </state>
