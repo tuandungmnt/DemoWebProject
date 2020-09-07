@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
+import {AuthService} from "../../services/auth.service";
+import {ApiService} from "../../services/api.service";
 
 @Component({
   selector: 'app-list',
@@ -29,10 +31,14 @@ export class ListComponent implements OnInit {
   l: number;
 
   constructor(
-    private http: HttpClient
-  ) { }
+    private http: HttpClient,
+    private api: ApiService,
+    private auth: AuthService
+  ) {
+  }
 
   ngOnInit(): void {
+    console.log("CHAM HOI");
   }
 
   setScene(x: number) {
@@ -41,30 +47,25 @@ export class ListComponent implements OnInit {
   }
 
   createAgent() {
-    this.s = "username=" + this.username + "&password=" + this.password + "&phone=" + this.phone + "&email=" + this.email;
-    this.http.get<JSON>(this.url+"create_agent?"+this.s).subscribe(
-      data => {
-        console.log(data);
-        this.result = JSON.parse(JSON.stringify(data));
-        if (this.result.status == "success") {
-          this.header = "SUCCESS!";
-          this.username = "";
-          this.password = "";
-          this.phone = "";
-          this.email = "";
-        }
+    let data = this.api.createAgent(this.username, this.password, this.phone, this.email)
+      .subscribe(
+      next => {
+        console.log(next);
       },
       error => {
         console.log(error);
-      });
+      }
+    );
+    console.log(data);
   }
 
   createJob() {
     this.s = "jobname=" + this.jobname + "&description=" + this.description;
     this.http.get<JSON>(this.url+"create_job?"+this.s).subscribe(data => {
+      this.header = "CAI GI VAY TROI";
       console.log(data);
       this.result = JSON.parse(JSON.stringify(data));
-      if (this.result.message == "success") {
+      if (this.result.status == "success") {
         this.header = "SUCCESS!";
         this.jobname = "";
         this.description = "";
@@ -77,7 +78,7 @@ export class ListComponent implements OnInit {
     this.http.get<JSON>(this.url+"create_agent_job?"+this.s).subscribe(data => {
       console.log(data);
       this.result = JSON.parse(JSON.stringify(data));
-      if (this.result.message == "success") {
+      if (this.result.status == "success") {
         this.header = "SUCCESS!";
         this.userid = "";
         this.jobid = "";

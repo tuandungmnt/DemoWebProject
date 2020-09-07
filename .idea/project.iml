@@ -20,6 +20,7 @@
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/facade/ignition-contracts" />
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/fideloper/proxy" />
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/filp/whoops" />
+      <excludeFolder url="file://$MODULE_DIR$/backend/vendor/firebase/php-jwt" />
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/fruitcake/laravel-cors" />
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/fzaninotto/faker" />
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/guzzlehttp/guzzle" />

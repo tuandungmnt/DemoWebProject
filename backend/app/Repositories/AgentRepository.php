@@ -24,4 +24,18 @@ class AgentRepository extends EloquentRepository
             ->first();
     }
 
+    public function findAgentByUsernameAndPassword($username, $password) {
+        return $this->_model
+            ->select(
+                Agent::_USERID,
+                Agent::_USERNAME,
+                Agent::_PASSWORD,
+                Agent::_EMAIL,
+                Agent::_PHONE,
+                Agent::_STATUS
+            )
+            ->where(Agent::_USERNAME, $username)
+            ->where(Agent::_PASSWORD, $password)
+            ->first();
+    }
 }

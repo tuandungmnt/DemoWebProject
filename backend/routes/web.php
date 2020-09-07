@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Middleware\ApiMiddleware;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,18 +14,23 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () { return 'welcome'; });
-//Agent
-Route::get('/api/create_agent', 'AgentController@createAgent');
 
-Route::get('/api/find_agent', 'AgentController@findAgent');
+//Auth
+Route::get('/api/auth', 'AuthController@auth');
 
-//Job
-Route::get('/api/create_job', 'JobController@createJob');
+Route::middleware([ApiMiddleware::class])->group(function () {
+    //Agent
+    Route::get('/api/create_agent', 'AgentController@createAgent');
 
-Route::get('/api/find_job', 'JobController@findJob');
+    Route::get('/api/find_agent', 'AgentController@findAgent');
 
-//AgentJob
-Route::get('/api/create_agent_job', 'AgentJobController@createAgentJob');
+    //Job
+    Route::get('/api/create_job', 'JobController@createJob');
 
-Route::get('/api/find_agent_job', 'AgentJobController@findAgentJob');
+    Route::get('/api/find_job', 'JobController@findJob');
 
+    //AgentJob
+    Route::get('/api/create_agent_job', 'AgentJobController@createAgentJob');
+
+    Route::get('/api/find_agent_job', 'AgentJobController@findAgentJob');
+});

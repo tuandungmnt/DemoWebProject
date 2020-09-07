@@ -1,0 +1,17 @@
+<h1>Welcome!</h1>
+
+<div class="play-container">
+  <p>
+    Enter UserName:
+    <input type="text" [(ngModel)]="username">
+  </p>
+  <p>
+    Enter Password:
+    <input type="text" [(ngModel)]="password">
+  </p>
+  <span (click)="logIn()">Login</span>
+  <p>
+    {{token}}
+  </p>
+  <span (click)="logOut()">Logout</span>
+</div>

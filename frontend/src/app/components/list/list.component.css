@@ -1,16 +1,16 @@
 span {
-  font-weight: bold;
-  background: lightgray;
-  padding: 0.3em 0.8em;
+  font-weight: normal;
+  background: #3caea3;
+  padding: 0.5em 1em;
   cursor: pointer;
 }
 .play-container {
-  padding: 3em;
+  padding: 2em;
   border: 1px solid lightgray;
   margin-bottom: 1em;
 }
 .play-container input {
-  padding: 1em;
-  margin-bottom: 2em;
+  padding: 1em 5em;
+  margin-bottom: 0em;
 }
 

@@ -20,17 +20,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="89941313-2dcc-48a6-bfda-5c0ac0d4d9eb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/AuthController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Http/Middleware/ApiMiddleware.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Repositories/AuthRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/components/home/home.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/interceptors/token.interceptor.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/interceptors/token.interceptor.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/models/login.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/services/api.service.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/services/api.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/services/auth.service.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/services/auth.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/project.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/AgentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/AgentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/AgentJobController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/AgentJobController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/JobController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/JobController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Repositories/AgentRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Repositories/AgentRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Repositories/JobRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Repositories/JobRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/backend/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/config/services.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/services.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/list/list.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/list/list.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/list/list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/list/list.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/list/list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/list/list.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/form/form.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/form/form.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/form/form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/form/form.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/form/form.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/form/form.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/form/form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/form/form.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/home/home.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/list/list.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/home/home.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/home/home.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/home/home.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/home/home.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/list/list.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/home/home.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/list/list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/list/list.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/list/list.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/list/list.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/list/list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/list/list.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/environments/environment.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,6 +172,7 @@
       <path value="$PROJECT_DIR$/backend/vendor/guzzlehttp/guzzle" />
       <path value="$PROJECT_DIR$/backend/vendor/fzaninotto/faker" />
       <path value="$PROJECT_DIR$/backend/vendor/fruitcake/laravel-cors" />
+      <path value="$PROJECT_DIR$/backend/vendor/firebase/php-jwt" />
     </include_path>
   </component>
   <component name="ProjectId" id="1gP0EogD1d8cRoMpD59uVr6xrnR" />
@@ -159,9 +185,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/service_agent-master" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -170,9 +197,13 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/frontend/node_modules/typescript/lib" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/src/app/interceptors" />
+      <recent name="$PROJECT_DIR$/frontend/src/app/components" />
+      <recent name="$PROJECT_DIR$/frontend/src/app/service" />
       <recent name="$PROJECT_DIR$/backend/app/Models" />
     </key>
   </component>
@@ -190,7 +221,14 @@
       <workItem from="1598250926931" duration="12775000" />
       <workItem from="1598316882210" duration="17907000" />
       <workItem from="1598423543997" duration="15200000" />
-      <workItem from="1598509995538" duration="7514000" />
+      <workItem from="1598509995538" duration="13374000" />
+      <workItem from="1598596286656" duration="8470000" />
+      <workItem from="1598605286522" duration="4167000" />
+      <workItem from="1598855701883" duration="1691000" />
+      <workItem from="1598857418873" duration="41000" />
+      <workItem from="1598858807139" duration="9402000" />
+      <workItem from="1599460964345" duration="840000" />
+      <workItem from="1599461954594" duration="9953000" />
     </task>
     <servers />
   </component>
@@ -213,21 +251,29 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="448" y="155" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1598436008638">
+    <state x="448" y="155" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1598521457835">
       <screen x="64" y="27" width="1302" height="741" />
     </state>
-    <state x="448" y="155" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/64.27.1302.741@64.27.1302.741" timestamp="1598436008638" />
-    <state x="445" y="117" width="529" height="568" key="NewPhpClassDialog" timestamp="1598337656032">
+    <state x="448" y="155" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/64.27.1302.741@64.27.1302.741" timestamp="1598521457835" />
+    <state x="498" y="155" width="424" height="491" key="FileChooserDialogImpl" timestamp="1599469885339">
       <screen x="64" y="27" width="1302" height="741" />
     </state>
-    <state x="445" y="117" width="529" height="568" key="NewPhpClassDialog/64.27.1302.741@64.27.1302.741" timestamp="1598337656032" />
-    <state x="510" y="323" width="399" height="156" key="NewPhpFileDialog" timestamp="1598004980905">
+    <state x="498" y="155" width="424" height="491" key="FileChooserDialogImpl/64.27.1302.741@64.27.1302.741" timestamp="1599469885339" />
+    <state x="445" y="117" width="553" height="568" key="NewPhpClassDialog" timestamp="1599461759427">
       <screen x="64" y="27" width="1302" height="741" />
     </state>
-    <state x="510" y="323" width="399" height="156" key="NewPhpFileDialog/64.27.1302.741@64.27.1302.741" timestamp="1598004980905" />
+    <state x="445" y="117" width="553" height="568" key="NewPhpClassDialog/64.27.1302.741@64.27.1302.741" timestamp="1599461759427" />
+    <state x="510" y="323" width="399" height="156" key="NewPhpFileDialog" timestamp="1598522260273">
+      <screen x="64" y="27" width="1302" height="741" />
+    </state>
+    <state x="510" y="323" width="399" height="156" key="NewPhpFileDialog/64.27.1302.741@64.27.1302.741" timestamp="1598522260273" />
     <state x="204" y="31" width="1022" height="737" key="SettingsEditor" timestamp="1598000910016">
       <screen x="64" y="27" width="1302" height="741" />
     </state>
     <state x="204" y="31" width="1022" height="737" key="SettingsEditor/64.27.1302.741@64.27.1302.741" timestamp="1598000910016" />
+    <state x="378" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1598856653913">
+      <screen x="64" y="27" width="1302" height="741" />
+    </state>
+    <state x="378" y="89" width="672" height="678" key="search.everywhere.popup/64.27.1302.741@64.27.1302.741" timestamp="1598856653913" />
   </component>
 </project>

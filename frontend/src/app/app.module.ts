@@ -3,11 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { ListComponent } from './list/list.component';
+import { HomeComponent } from './components/home/home.component';
+import { ListComponent } from './components/list/list.component';
 import { FormsModule } from "@angular/forms";
-import { HttpClientModule } from "@angular/common/http";
-import { FormComponent } from './form/form.component';
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import { FormComponent } from './components/form/form.component';
+import {AuthService} from "./services/auth.service";
+import {ApiService} from "./services/api.service";
+import {TokenInterceptor} from "./interceptors/token.interceptor";
 
 @NgModule({
   declarations: [
@@ -22,7 +25,15 @@ import { FormComponent } from './form/form.component';
     FormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    ApiService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
