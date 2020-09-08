@@ -11,13 +11,17 @@ import { FormComponent } from './components/form/form.component';
 import {AuthService} from "./services/auth.service";
 import {ApiService} from "./services/api.service";
 import {TokenInterceptor} from "./interceptors/token.interceptor";
+import { UserComponent } from './components/user/user.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ListComponent,
-    FormComponent
+    FormComponent,
+    UserComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,19 @@
+<header>
+  <div class="container">
+    <a routerLink="/" class="logo">DEMO</a>
+    <nav>
+      <ul>
+        <li><butt (click)="logOut()">Log Out</butt></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <h1> Your Job </h1>
+  <div class="play-container">
+    <li *ngFor="let x of jobList">
+      {{ x }}
+    </li>
+  </div>
+</div>

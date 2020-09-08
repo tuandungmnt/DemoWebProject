@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Login} from "../../models/login.model";
 import {AuthService} from "../../services/auth.service";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -12,12 +13,15 @@ export class HomeComponent implements OnInit {
   username: string = "";
   password: string = "";
   token: string = "";
+  url: string = "";
+  error: string = "";
 
   ngOnInit(): void {
   }
 
   constructor(
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router,
   ) {
     this.token = this.authService.getToken();
   }
@@ -28,18 +32,33 @@ export class HomeComponent implements OnInit {
     loginData.password = this.password;
     this.authService.logIn(loginData).subscribe(
       next => {
+        if (next.status == 'fail') {
+          this.showError();
+          return;
+        }
+
         this.authService.dataLogin(next);
         this.token = this.authService.getToken();
         console.log(next);
+
+        if (this.username == 'admin') this.url = '/admin'
+          else this.url = '/user';
+        this.router.navigateByUrl(this.url).then(e => {
+          if (e) {
+            console.log("Navigation is successful!");
+          } else {
+            console.log("Navigation has failed!");
+          }
+        });
       },
       error => {
         console.log(error);
+        this.showError();
       }
     )
   }
 
-  logOut() {
-    this.authService.logOut();
-    this.token = this.authService.getToken();
+  showError() {
+    this.error = "Username and Password doesn't match!!!"
   }
 }

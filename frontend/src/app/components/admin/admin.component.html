@@ -1,0 +1,75 @@
+<header>
+  <div class="container">
+    <a routerLink="/" class="logo">DEMO</a>
+    <nav>
+      <ul>
+        <li><butt (click)="logOut()">Log Out</butt></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <h1> {{header}} </h1>
+
+  <p>
+    <span (click)="setScene(1)">Create Agent</span>
+    <span (click)="setScene(2)">Create Job</span>
+    <span (click)="setScene(3)">Create Group</span>
+    <span (click)="setScene(4)">Create Permission</span>
+  </p>
+  <p>
+    <span (click)="setScene(5)">Add Agent's Job</span>
+    <span (click)="setScene(6)">Add Job's Group</span>
+    <span (click)="setScene(7)">Add Group's Permission</span>
+  </p>
+
+  <div class = play-container>
+    <ng-template [ngIf]="scene == 1">
+      <p>
+        Enter Username:
+        <label>
+          <input type="text" [(ngModel)]="username">
+        </label>
+      </p>
+      <p>
+        Enter Password:
+        <input type="text" [(ngModel)]="password">
+      </p>
+      <p>
+        Enter Phone:
+        <input type="text" [(ngModel)]="phone">
+      </p>
+      <p>
+        Enter Email:
+        <input type="text" [(ngModel)]="email">
+      </p>
+      <span (click)="createAgent()">Create Agent</span>
+    </ng-template>
+
+
+    <ng-template [ngIf]="scene == 2">
+      <p>
+        Enter Job Name:
+        <input type="text" [(ngModel)]="jobname">
+      </p>
+      <p>
+        Enter Description:
+        <input type="text" [(ngModel)]="description">
+      </p>
+      <span (click)="createJob()">Create Job</span>
+    </ng-template>
+
+    <ng-template [ngIf]="scene == 5">
+      <p>
+        Enter User ID:
+        <input type="text" [(ngModel)]="userid">
+      </p>
+      <p>
+        Enter Job ID:
+        <input type="text" [(ngModel)]="jobid">
+      </p>
+      <span (click)="createAgentJob()">Create Agent's Job</span>
+    </ng-template>
+  </div>
+</div>

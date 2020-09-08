@@ -37,3 +37,25 @@ h1 {
   margin-top: 2em;
 }
 
+butt {
+  font-weight: normal;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  color: white;
+}
+
+span {
+  font-weight: normal;
+  background: #3caea3;
+  padding: 0.5em 1em;
+  cursor: pointer;
+}
+.play-container {
+  padding: 2em;
+  border: 1px solid lightgray;
+  margin-bottom: 1em;
+}
+.play-container input {
+  padding: 1em 5em;
+  margin-bottom: 0em;
+}

@@ -1,3 +1,11 @@
+<header>
+  <div class="container">
+    <a routerLink="/" class="logo">DEMO</a>
+  </div>
+</header>
+
+<div class="container">
+
 <h1>Welcome!</h1>
 
 <div class="play-container">
@@ -10,8 +18,7 @@
     <input type="text" [(ngModel)]="password">
   </p>
   <span (click)="logIn()">Login</span>
-  <p>
-    {{token}}
-  </p>
-  <span (click)="logOut()">Logout</span>
+  <p> {{error}}</p>
 </div>
+</div>
+

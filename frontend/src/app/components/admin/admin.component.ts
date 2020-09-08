@@ -1,15 +1,16 @@
-import {Component, OnInit} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../../services/auth.service";
+import {Router} from "@angular/router";
+import {HttpClient} from "@angular/common/http";
 import {ApiService} from "../../services/api.service";
 
 @Component({
-  selector: 'app-list',
-  templateUrl: './list.component.html',
-  styleUrls: ['./list.component.css']
+  selector: 'app-admin',
+  templateUrl: './admin.component.html',
+  styleUrls: ['./admin.component.css']
 })
-export class ListComponent implements OnInit {
-  header: string = "TEST API!!!"
+export class AdminComponent implements OnInit {
+  header: string = "ADMIN"
 
   result: any;
   url: string = "http://localhost:8000/api/";
@@ -32,10 +33,10 @@ export class ListComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
-    private api: ApiService,
-    private auth: AuthService
-  ) {
-  }
+    private apiService: ApiService,
+    private authService: AuthService,
+    private router: Router,
+  ) { }
 
   ngOnInit(): void {
     console.log("CHAM HOI");
@@ -43,7 +44,7 @@ export class ListComponent implements OnInit {
 
   setScene(x: number) {
     this.scene = x;
-    this.header = "TEST API!!!"
+    this.header = "ADMIN";
   }
 
   createAgent() {
@@ -86,18 +87,15 @@ export class ListComponent implements OnInit {
     });
   }
 
-  showAgentJob() {
-    this.s = "userid=" + this.userid;
-    console.log(this.url+"find_agent_job?"+this.s);
-    this.http.get<JSON>(this.url+"find_agent_job?"+this.s).subscribe(
-      data => {
-        console.log(data);
-        this.result = JSON.parse(JSON.stringify(data));
-        this.jobList = this.result.data;
-        this.l = this.jobList.length;
-      },
-      error => {
-        console.log(error);
-      });
+  logOut() {
+    this.authService.logOut();
+    this.router.navigateByUrl('/').then(e => {
+      if (e) {
+        console.log("Navigation is successful!");
+      } else {
+        console.log("Navigation has failed!");
+      }
+    });
   }
+
 }
