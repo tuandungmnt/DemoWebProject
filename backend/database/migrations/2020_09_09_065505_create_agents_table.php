@@ -15,10 +15,10 @@ class CreateAgentsTable extends Migration
     {
         Schema::create('agent', function (Blueprint $table) {
             $table->integerIncrements('userid');
-            $table->string('username', 255);
+            $table->string('username', 255)->unique()->index();
             $table->string('password', 255);
-            $table->string('phone',12);
-            $table->string('email',100);
+            $table->string('phone',12)->unique()->index();
+            $table->string('email',100)->unique()->index();
             $table->tinyInteger('status')->default(0);
         });
     }
@@ -30,6 +30,6 @@ class CreateAgentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('agent');
+        Schema::dropIfExists('agents');
     }
 }

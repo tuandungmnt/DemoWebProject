@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateJobsTable extends Migration
+class CreatePermissionTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateJobsTable extends Migration
      */
     public function up()
     {
-        Schema::create('job', function (Blueprint $table) {
-            $table->integerIncrements('jobid');
-            $table->string('jobname', 100);
+        Schema::create('permission', function (Blueprint $table) {
+            $table->integerIncrements('permissionid');
+            $table->string('permission', 100)->unique()->index();
             $table->string('description',1000);
         });
     }
@@ -27,6 +27,6 @@ class CreateJobsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('job');
+        Schema::dropIfExists('permission');
     }
 }

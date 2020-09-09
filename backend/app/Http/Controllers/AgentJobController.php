@@ -47,13 +47,11 @@ class AgentJobController extends Controller
         $job = $this->jobRepo->findJob($jobid);
 
         if ($agent == null || $agent->status == 0) {
-            $this->status = 'fail';
             $this->message = 'Người đùng không tồn tại hoặc đã ngừng hoạt động';
             goto next;
         }
 
         if ($job == null) {
-            $this->status = 'fail';
             $this->message = 'Công việc không tồn tại';
             goto next;
         }
@@ -85,7 +83,6 @@ class AgentJobController extends Controller
         $sss = array();
 
         if ($agent == null || $agent->status == 0) {
-            $this->status = 'fail';
             $this->message = 'Người đùng không tồn tại hoặc đã ngừng hoạt động';
             goto next;
         }

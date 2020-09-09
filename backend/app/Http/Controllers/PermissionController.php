@@ -2,39 +2,39 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Job;
-use App\Repositories\JobRepository;
+use App\Models\Permission;
+use App\Repositories\PermissionRepository;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 
-class JobController extends Controller
+class PermissionController extends Controller
 {
-    private $jobRepo;
+    private $permissionRepo;
     private $request;
 
     public function __construct(
-        JobRepository $jobRepo,
+        PermissionRepository $permissionRepo,
         Request $request
     ) {
-        $this->jobRepo = $jobRepo;
+        $this->permissionRepo = $permissionRepo;
         $this->request = $request;
     }
 
     /**
      * @throws ValidationException
      */
-    public function createJob() {
+    public function createPermission() {
         $rules = [
-            Job::_JOBNAME => 'required',
-            Job::_DESCRIPTION => 'required',
+            Permission::_PERMISSION => 'required',
+            Permission::_DESCRIPTION => 'required',
         ];
         $this->validate($this->request, $rules);
 
         $job = [
-            Job::_JOBNAME => $this->request->input(Job::_JOBNAME),
-            Job::_DESCRIPTION => $this->request->input(Job::_DESCRIPTION),
+            Permission::_PERMISSION => $this->request->input(Permission::_PERMISSION),
+            Permission::_DESCRIPTION => $this->request->input(Permission::_DESCRIPTION),
         ];
-        $this->jobRepo->insert($job);
+        $this->permissionRepo->insert($job);
         $this->message = 'Tạo thành công';
         $this->status = 'success';
 
@@ -44,16 +44,16 @@ class JobController extends Controller
     /**
      * @throws ValidationException
      */
-    public function findJob() {
+    public function findPermission() {
         $rules = [
-            Job::_JOBID => 'required'
+            Permission::_PERMISSIONID => 'required'
         ];
 
         $this->validate($this->request, $rules);
 
-        $data = $this->jobRepo->findJob($this->request->input(Job::_JOBID));
+        $data = $this->permissionRepo->findPermission($this->request->input(Permission::_PERMISSIONID));
         if ($data == null) {
-            $this->message = 'Công việc không tồn tại';
+            $this->message = 'Quyền không tồn tại';
             goto next;
         }
 

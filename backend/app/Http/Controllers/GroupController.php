@@ -2,40 +2,40 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Job;
-use App\Repositories\JobRepository;
+use App\Models\Group;
+use App\Repositories\GroupRepository;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 
-class JobController extends Controller
+class GroupController extends Controller
 {
-    private $jobRepo;
+    private $groupRepo;
     private $request;
 
     public function __construct(
-        JobRepository $jobRepo,
+        GroupRepository $groupRepo,
         Request $request
     ) {
-        $this->jobRepo = $jobRepo;
+        $this->groupRepo = $groupRepo;
         $this->request = $request;
     }
 
     /**
      * @throws ValidationException
      */
-    public function createJob() {
+    public function createGroup() {
         $rules = [
-            Job::_JOBNAME => 'required',
-            Job::_DESCRIPTION => 'required',
+            Group::_GROUPNAME => 'required',
+            Group::_DESCRIPTION => 'required',
         ];
         $this->validate($this->request, $rules);
 
-        $job = [
-            Job::_JOBNAME => $this->request->input(Job::_JOBNAME),
-            Job::_DESCRIPTION => $this->request->input(Job::_DESCRIPTION),
+        $group = [
+            Group::_GROUPNAME => $this->request->input(Group::_GROUPNAME),
+            Group::_DESCRIPTION => $this->request->input(Group::_DESCRIPTION),
         ];
-        $this->jobRepo->insert($job);
-        $this->message = 'Tạo thành công';
+        $this->groupRepo->insert($group);
+        $this->message = 'Tạo nhóm thành công';
         $this->status = 'success';
 
         return $this->responseData();
@@ -44,16 +44,16 @@ class JobController extends Controller
     /**
      * @throws ValidationException
      */
-    public function findJob() {
+    public function findGroup() {
         $rules = [
-            Job::_JOBID => 'required'
+            Group::_GROUPID => 'required'
         ];
 
         $this->validate($this->request, $rules);
 
-        $data = $this->jobRepo->findJob($this->request->input(Job::_JOBID));
+        $data = $this->groupRepo->findGroup($this->request->input(Group::_GROUPID));
         if ($data == null) {
-            $this->message = 'Công việc không tồn tại';
+            $this->message = 'Nhóm không tồn tại';
             goto next;
         }
 

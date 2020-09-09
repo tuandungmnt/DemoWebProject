@@ -49,7 +49,7 @@ class AgentController extends Controller
             Agent::_EMAIL => $this->request->input(Agent::_EMAIL),
             Agent::_STATUS => 1,
         ];
-        $this->agentRepo->create($agent);
+        $this->agentRepo->insert($agent);
 
         $this->message = 'Tạo thành công';
         $this->status = 'success';
@@ -69,7 +69,6 @@ class AgentController extends Controller
         $data = $this->agentRepo->findAgent($this->request->input(Agent::_USERID));
         if ($data == null) {
             $this->message = 'Người dùng không tồn tại';
-            $this->status = 'fail';
             goto next;
         }
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAgentJobsTable extends Migration
+class CreateAgentJobTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,8 +14,8 @@ class CreateAgentJobsTable extends Migration
     public function up()
     {
         Schema::create('agentjob', function (Blueprint $table) {
-            $table->integer('userid');
-            $table->integer('jobid');
+            $table->integer('userid')->index();
+            $table->integer('jobid')->index();
         });
     }
 
@@ -26,6 +26,6 @@ class CreateAgentJobsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('agentjob');
+        Schema::dropIfExists('agent_job');
     }
 }

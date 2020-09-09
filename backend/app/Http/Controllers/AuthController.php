@@ -6,7 +6,6 @@ require '../vendor/autoload.php';
 
 use App\Models\Agent;
 use App\Repositories\AgentRepository;
-use App\Repositories\AuthRepository;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use \Firebase\JWT\JWT;
@@ -14,16 +13,13 @@ use \Firebase\JWT\JWT;
 class AuthController extends Controller
 {
     private $agentRepo;
-    private $authRepo;
     private $request;
 
     public function __construct(
         AgentRepository $agentRepo,
-        AuthRepository $authRepo,
         Request $request
     ) {
         $this->agentRepo = $agentRepo;
-        $this->authRepo = $authRepo;
         $this->request = $request;
     }
 

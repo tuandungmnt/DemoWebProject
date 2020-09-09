@@ -31,8 +31,28 @@ Route::middleware([ApiMiddleware::class])->group(function () {
 
     Route::get('/api/find_job', 'JobController@findJob');
 
+    //Group
+    Route::get('/api/create_group', 'GroupController@createGroup');
+
+    Route::get('/api/find_group', 'GroupController@findGroup');
+
+    //Permission
+    Route::get('/api/create_permission', 'ControllerPermission@createPermission');
+
+    Route::get('/api/find_permission', 'PermissionController@findPermission');
+
     //AgentJob
     Route::get('/api/create_agent_job', 'AgentJobController@createAgentJob');
 
     Route::get('/api/find_agent_job', 'AgentJobController@findAgentJob');
+
+    //JobGroup
+    Route::get('/api/create_job_group', 'JobGroupController@createJobGroup');
+
+    Route::get('/api/find_job_group', 'JobGroupController@findJobGroup');
+
+    //GroupPermission
+    Route::get('/api/create_group_permission', 'GroupPermissionController@createGroupPermission');
+
+    Route::get('/api/find_group_permission', 'GroupPermissionController@findGroupPermission');
 });
