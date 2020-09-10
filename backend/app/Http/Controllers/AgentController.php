@@ -50,18 +50,43 @@ class AgentController extends Controller
 
         $this->validate($this->request, $rules);
 
+        $username = $this->request->input(Agent::_USERNAME);
+        $password = $this->request->input(Agent::_PASSWORD);
+        $phone = $this->request->input(Agent::_PHONE);
+        $email = $this->request->input(Agent::_EMAIL);
+
+        $agent = $this->agentRepo->findAgentByUsername($username);
+        if ($agent != null) {
+            $this->message = 'Tên người dùng đã tồn tại!';
+            goto next;
+        }
+
+        $agent = $this->agentRepo->findAgentByPhone($phone);
+        if ($agent != null) {
+            $this->message = 'Số điện thoại đã tồn tại!';
+            goto next;
+        }
+
+        $agent = $this->agentRepo->findAgentByEmail($email);
+        if ($agent != null) {
+            $this->message = 'Địa chỉ email đã tồn tại!';
+            goto next;
+        }
+
         $agent = [
-            Agent::_USERNAME => $this->request->input(Agent::_USERNAME),
-            Agent::_PASSWORD => $this->request->input(Agent::_PASSWORD),
-            Agent::_PHONE => $this->request->input(Agent::_PHONE),
-            Agent::_EMAIL => $this->request->input(Agent::_EMAIL),
+            Agent::_USERNAME => $username,
+            Agent::_PASSWORD => $password,
+            Agent::_PHONE => $phone,
+            Agent::_EMAIL => $email,
             Agent::_STATUS => 1,
         ];
+
         $this->agentRepo->insert($agent);
 
         $this->message = 'Tạo thành công';
         $this->status = 'success';
 
+        next:
         return $this->responseData();
     }
     /**
@@ -74,7 +99,7 @@ class AgentController extends Controller
 
         $this->validate($this->request, $rules);
 
-        $data = $this->agentRepo->findAgent($this->request->input(Agent::_USERID));
+        $data = $this->agentRepo->findAgentById($this->request->input(Agent::_USERID));
         if ($data == null) {
             $this->message = 'Người dùng không tồn tại';
             goto next;
@@ -112,7 +137,7 @@ class AgentController extends Controller
 
         $result = array();
         foreach ($permissions as $permission) {
-            $t = $this->permissionRepo->findPermission($permission);
+            $t = $this->permissionRepo->findPermissionById($permission);
             array_push($result, $t->permission);
         }
 

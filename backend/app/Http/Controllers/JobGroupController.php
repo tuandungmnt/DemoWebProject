@@ -43,8 +43,8 @@ class JobGroupController extends Controller
         $jobid = $this->request->input(JobGroup::_JOBID);
         $groupid = $this->request->input(JobGroup::_GROUPID);
 
-        $job = $this->jobRepo->findJob($jobid);
-        $group = $this->groupRepo->findgroup($groupid);
+        $job = $this->jobRepo->findJobById($jobid);
+        $group = $this->groupRepo->findGroupById($groupid);
 
         if ($job == null) {
             $this->message = 'Công việc không tồn tại';
@@ -79,7 +79,7 @@ class JobGroupController extends Controller
         $this->validate($this->request, $rules);
 
         $jobid = $this->request->input(JobGroup::_JOBID);
-        $job = $this->jobRepo->findJob($jobid);
+        $job = $this->jobRepo->findJobById($jobid);
         $sss = array();
 
         if ($job == null) {
@@ -90,7 +90,7 @@ class JobGroupController extends Controller
         $result = $this->jobGroupRepo->findJobGroup($jobid);
 
         foreach ($result as $a) {
-            $b = $this->groupRepo->findGroup($a);
+            $b = $this->groupRepo->findGroupById($a);
             array_push($sss, $b->groupname);
         }
         $this->message = 'Lấy thông tin thành công';

@@ -43,8 +43,8 @@ class AgentJobController extends Controller
         $userid = $this->request->input(AgentJob::_USERID);
         $jobid = $this->request->input(AgentJob::_JOBID);
 
-        $agent = $this->agentRepo->findAgent($userid);
-        $job = $this->jobRepo->findJob($jobid);
+        $agent = $this->agentRepo->findAgentById($userid);
+        $job = $this->jobRepo->findJobById($jobid);
 
         if ($agent == null || $agent->status == 0) {
             $this->message = 'Người đùng không tồn tại hoặc đã ngừng hoạt động';
@@ -79,7 +79,7 @@ class AgentJobController extends Controller
         $this->validate($this->request, $rules);
 
         $userid = $this->request->input(AgentJob::_USERID);
-        $agent = $this->agentRepo->findAgent($userid);
+        $agent = $this->agentRepo->findAgentById($userid);
         $sss = array();
 
         if ($agent == null || $agent->status == 0) {
@@ -90,7 +90,7 @@ class AgentJobController extends Controller
         $result = $this->agentJobRepo->findAgentJob($userid);
 
         foreach ($result as $a) {
-            $b = $this->jobRepo->findJob($a);
+            $b = $this->jobRepo->findJobById($a);
             array_push($sss, $b->jobname);
         }
         $this->message = 'Lấy thông tin thành công';

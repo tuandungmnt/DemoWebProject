@@ -30,14 +30,23 @@ class JobController extends Controller
         ];
         $this->validate($this->request, $rules);
 
+        $jobName = $this->request->input(Job::_JOBNAME);
+        $description = $this->request->input(Job::_DESCRIPTION);
+
+        if ($this->jobRepo->findJobByJobName($jobName) != null) {
+            $this->message = "Công việc đã tồn tại!";
+            goto next;
+        }
+
         $job = [
-            Job::_JOBNAME => $this->request->input(Job::_JOBNAME),
-            Job::_DESCRIPTION => $this->request->input(Job::_DESCRIPTION),
+            Job::_JOBNAME => $jobName,
+            Job::_DESCRIPTION => $description,
         ];
         $this->jobRepo->insert($job);
         $this->message = 'Tạo thành công';
         $this->status = 'success';
 
+        next:
         return $this->responseData();
     }
 
@@ -51,7 +60,7 @@ class JobController extends Controller
 
         $this->validate($this->request, $rules);
 
-        $data = $this->jobRepo->findJob($this->request->input(Job::_JOBID));
+        $data = $this->jobRepo->findJobById($this->request->input(Job::_JOBID));
         if ($data == null) {
             $this->message = 'Công việc không tồn tại';
             goto next;

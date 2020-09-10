@@ -11,7 +11,7 @@ class AgentRepository extends EloquentRepository
         return Agent::class;
     }
 
-    public function findAgent($userId) {
+    public function findAgentById($userId) {
         return $this->_model
             ->select(
                 Agent::_USERNAME,
@@ -36,6 +36,48 @@ class AgentRepository extends EloquentRepository
             )
             ->where(Agent::_USERNAME, $username)
             ->where(Agent::_PASSWORD, $password)
+            ->first();
+    }
+
+    public function findAgentByUsername($username) {
+        return $this->_model
+            ->select(
+                Agent::_USERID,
+                Agent::_USERNAME,
+                Agent::_PASSWORD,
+                Agent::_EMAIL,
+                Agent::_PHONE,
+                Agent::_STATUS
+            )
+            ->where(Agent::_USERNAME, $username)
+            ->first();
+    }
+
+    public function findAgentByPhone($phone) {
+        return $this->_model
+            ->select(
+                Agent::_USERID,
+                Agent::_USERNAME,
+                Agent::_PASSWORD,
+                Agent::_EMAIL,
+                Agent::_PHONE,
+                Agent::_STATUS
+            )
+            ->where(Agent::_PHONE, $phone)
+            ->first();
+    }
+
+    public function findAgentByEmail($email) {
+        return $this->_model
+            ->select(
+                Agent::_USERID,
+                Agent::_USERNAME,
+                Agent::_PASSWORD,
+                Agent::_EMAIL,
+                Agent::_PHONE,
+                Agent::_STATUS
+            )
+            ->where(Agent::_EMAIL, $email)
             ->first();
     }
 }

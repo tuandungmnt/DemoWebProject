@@ -30,14 +30,23 @@ class GroupController extends Controller
         ];
         $this->validate($this->request, $rules);
 
+        $groupName = $this->request->input(Group::_GROUPNAME);
+        $description = $this->request->input(Group::_DESCRIPTION);
+
+        if ($this->groupRepo->findGroupByGroupName($groupName) != null) {
+            $this->message = "Tên nhóm đã tồn tại!";
+            goto next;
+        }
+
         $group = [
-            Group::_GROUPNAME => $this->request->input(Group::_GROUPNAME),
-            Group::_DESCRIPTION => $this->request->input(Group::_DESCRIPTION),
+            Group::_GROUPNAME => $groupName,
+            Group::_DESCRIPTION => $description,
         ];
         $this->groupRepo->insert($group);
         $this->message = 'Tạo nhóm thành công';
         $this->status = 'success';
 
+        next:
         return $this->responseData();
     }
 
@@ -51,7 +60,7 @@ class GroupController extends Controller
 
         $this->validate($this->request, $rules);
 
-        $data = $this->groupRepo->findGroup($this->request->input(Group::_GROUPID));
+        $data = $this->groupRepo->findGroupById($this->request->input(Group::_GROUPID));
         if ($data == null) {
             $this->message = 'Nhóm không tồn tại';
             goto next;

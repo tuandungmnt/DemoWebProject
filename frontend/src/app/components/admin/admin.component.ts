@@ -12,7 +12,7 @@ import {Observable} from "rxjs";
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
-  header: string = "ADMIN"
+  header: string = "ADMIN - ALL FIELD REQUIRED";
   scene: number = 1;
   message: string = "";
   data: Observable <any>;
@@ -45,12 +45,13 @@ export class AdminComponent implements OnInit {
       groupId: new FormControl(),
       permissionId: new FormControl(),
     });
+    this.resetFormValue();
     this.form.get('userid').valueChanges.subscribe(
       next =>{
         this.apiService.findAgent(next).subscribe(
           next => {
             let result = JSON.parse(JSON.stringify(next));
-            if (result.status == "success") this.userName = result.data.username;
+            if (result.status == "success") this.userName = " --- " + result.data.username;
               else this.userName = "";
           },
           error => {
@@ -64,7 +65,7 @@ export class AdminComponent implements OnInit {
         this.apiService.findJob(next).subscribe(
           next => {
             let result = JSON.parse(JSON.stringify(next));
-            if (result.status == "success") this.jobName = result.data.jobname;
+            if (result.status == "success") this.jobName = " --- " + result.data.jobname;
               else this.jobName = "";
           },
           error =>{
@@ -78,7 +79,7 @@ export class AdminComponent implements OnInit {
         this.apiService.findGroup(next).subscribe(
           next => {
             let result = JSON.parse(JSON.stringify(next));
-            if (result.status == "success") this.groupName = result.data.groupname;
+            if (result.status == "success") this.groupName = " --- " + result.data.groupname;
             else this.groupName = "";
           },
           error => {
@@ -92,7 +93,7 @@ export class AdminComponent implements OnInit {
         this.apiService.findPermission(next).subscribe(
           next => {
             let result = JSON.parse(JSON.stringify(next));
-            if (result.status == "success") this.permission = result.data.permission;
+            if (result.status == "success") this.permission = " --- " + result.data.permission;
             else this.permission = "";
           },
           error =>{
@@ -103,10 +104,27 @@ export class AdminComponent implements OnInit {
     )
   }
 
+  resetFormValue() {
+    this.form.setValue({
+      username: '',
+      password: '',
+      phone: '',
+      email: '',
+      jobName: '',
+      groupName: '',
+      permission: '',
+      description: '',
+      userid: '',
+      jobId: '',
+      groupId: '',
+      permissionId: '',
+    });
+  }
+
   setScene(x: number) {
     this.scene = x;
     this.message = "";
-    this.form.reset();
+    this.resetFormValue();
   }
 
   logOut() {
@@ -158,18 +176,16 @@ export class AdminComponent implements OnInit {
         break;
       }
     }
-    this.form.reset();
+    this.resetFormValue();
     this.data.subscribe(
       next => {
         console.log(next);
         let result = JSON.parse(JSON.stringify(next));
-        // if (result.status == "fail") this.message = "FAIL!!!";
-        //     else this.message = result.message;
-        this.message = result.message;
+        this.message = result.message + "!";
       },
       error => {
         console.log(error);
-        this.message = "FAIL!!!";
+        this.message = "ERROR!!!";
       }
     );
     console.log(this.data);

@@ -43,8 +43,8 @@ class GroupPermissionController extends Controller
         $groupid = $this->request->input(GroupPermission::_GROUPID);
         $permissionid = $this->request->input(GroupPermission::_PERMISSIONID);
 
-        $group = $this->groupRepo->findGroup($groupid);
-        $permission = $this->permissionRepo->findPermission($permissionid);
+        $group = $this->groupRepo->findGroupById($groupid);
+        $permission = $this->permissionRepo->findPermissionById($permissionid);
 
         if ($group == null) {
             $this->message = 'Nhóm không tồn tại';
@@ -79,7 +79,7 @@ class GroupPermissionController extends Controller
         $this->validate($this->request, $rules);
 
         $groupid = $this->request->input(GroupPermission::_GROUPID);
-        $group = $this->groupRepo->findGroup($groupid);
+        $group = $this->groupRepo->findGroupById($groupid);
         $sss = array();
 
         if ($group == null) {
@@ -90,7 +90,7 @@ class GroupPermissionController extends Controller
         $result = $this->groupPermissionRepo->findGroupPermission($groupid);
 
         foreach ($result as $a) {
-            $b = $this->permissionRepo->findPermission($a);
+            $b = $this->permissionRepo->findPermissionById($a);
             array_push($sss, $b->permission);
         }
         $this->message = 'Lấy thông tin thành công';

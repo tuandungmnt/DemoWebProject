@@ -11,13 +11,25 @@ class GroupRepository extends EloquentRepository
         return Group::class;
     }
 
-    public function findGroup($id) {
+    public function findGroupById($id) {
         return $this->_model
             ->select(
+                Group::_GROUPID,
                 Group::_GROUPNAME,
                 Group::_DESCRIPTION
             )
             ->where(Group::_GROUPID, $id)
+            ->first();
+    }
+
+    public function findGroupByGroupName($groupName) {
+        return $this->_model
+            ->select(
+                Group::_GROUPID,
+                Group::_GROUPNAME,
+                Group::_DESCRIPTION
+            )
+            ->where(Group::_GROUPNAME, $groupName)
             ->first();
     }
 }

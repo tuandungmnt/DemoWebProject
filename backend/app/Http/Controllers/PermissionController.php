@@ -30,14 +30,23 @@ class PermissionController extends Controller
         ];
         $this->validate($this->request, $rules);
 
+        $permission = $this->request->input(Permission::_PERMISSION);
+        $description = $this->request->input(Permission::_DESCRIPTION);
+
+        if ($this->permissionRepo->findPermissionByPermission($permission) != null) {
+            $this->message = 'Quyền đã tồn tại!';
+            goto next;
+        }
+
         $job = [
-            Permission::_PERMISSION => $this->request->input(Permission::_PERMISSION),
-            Permission::_DESCRIPTION => $this->request->input(Permission::_DESCRIPTION),
+            Permission::_PERMISSION => $permission,
+            Permission::_DESCRIPTION => $description,
         ];
         $this->permissionRepo->insert($job);
         $this->message = 'Tạo thành công';
         $this->status = 'success';
 
+        next:
         return $this->responseData();
     }
 
@@ -51,7 +60,7 @@ class PermissionController extends Controller
 
         $this->validate($this->request, $rules);
 
-        $data = $this->permissionRepo->findPermission($this->request->input(Permission::_PERMISSIONID));
+        $data = $this->permissionRepo->findPermissionById($this->request->input(Permission::_PERMISSIONID));
         if ($data == null) {
             $this->message = 'Quyền không tồn tại';
             goto next;

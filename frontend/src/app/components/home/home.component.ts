@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../../services/auth.service";
 import {Router} from '@angular/router';
-import {FormControl, FormGroup} from "@angular/forms";
-
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -15,8 +14,12 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
-      username: new FormControl(),
-      password: new FormControl()
+      username: new FormControl("",[
+        Validators.required,
+      ]),
+      password: new FormControl("",[
+        Validators.required,
+      ])
     });
   }
 
@@ -27,11 +30,16 @@ export class HomeComponent implements OnInit {
   }
 
   logIn() {
+    if (!this.loginForm.valid) {
+      this.error = "Invalid username or password";
+      return;
+    }
+
     console.log(this.loginForm.value);
     this.authService.logIn(this.loginForm.value).subscribe(
       next => {
         if (next.status == 'fail') {
-          this.showError();
+          this.error = "Username and Password doesn't match!!!"
           return;
         }
 
@@ -51,12 +59,8 @@ export class HomeComponent implements OnInit {
       },
       error => {
         console.log(error);
-        this.showError();
+        this.error = "Error!"
       }
     )
-  }
-
-  showError() {
-    this.error = "Username and Password doesn't match!!!"
   }
 }
