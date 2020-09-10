@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Login} from "../../models/login.model";
 import {AuthService} from "../../services/auth.service";
 import {Router} from '@angular/router';
+import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-home',
@@ -9,28 +9,26 @@ import {Router} from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
-  username: string = "";
-  password: string = "";
-  token: string = "";
-  url: string = "";
   error: string = "";
+  loginForm: FormGroup;
+
 
   ngOnInit(): void {
+    this.loginForm = new FormGroup({
+      username: new FormControl(),
+      password: new FormControl()
+    });
   }
 
   constructor(
     private authService: AuthService,
     private router: Router,
   ) {
-    this.token = this.authService.getToken();
   }
 
   logIn() {
-    let loginData: Login = new Login();
-    loginData.username = this.username;
-    loginData.password = this.password;
-    this.authService.logIn(loginData).subscribe(
+    console.log(this.loginForm.value);
+    this.authService.logIn(this.loginForm.value).subscribe(
       next => {
         if (next.status == 'fail') {
           this.showError();
@@ -38,12 +36,12 @@ export class HomeComponent implements OnInit {
         }
 
         this.authService.dataLogin(next);
-        this.token = this.authService.getToken();
         console.log(next);
 
-        if (this.username == 'admin') this.url = '/admin'
-          else this.url = '/user';
-        this.router.navigateByUrl(this.url).then(e => {
+        let url: string = '';
+        if (this.loginForm.value.username == 'admin') url = '/admin'
+          else url = '/user';
+        this.router.navigateByUrl(url).then(e => {
           if (e) {
             console.log("Navigation is successful!");
           } else {

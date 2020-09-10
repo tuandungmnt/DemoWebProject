@@ -3,6 +3,8 @@ import {AuthService} from "../../services/auth.service";
 import {Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {ApiService} from "../../services/api.service";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-admin',
@@ -11,25 +13,15 @@ import {ApiService} from "../../services/api.service";
 })
 export class AdminComponent implements OnInit {
   header: string = "ADMIN"
-
-  result: any;
-  url: string = "http://localhost:8000/api/";
   scene: number = 1;
+  message: string = "";
+  data: Observable <any>;
+  userName: string = "";
+  jobName: string = "";
+  groupName: string = "";
+  permission: string = "";
 
-  username: string = "";
-  password: string = "";
-  email: string = "";
-  phone: string = "";
-
-  jobname: string = "";
-  description: string = "";
-
-  userid: string = "";
-  jobid: string = "";
-
-  s: string = "";
-  jobList: string[];
-  l: number;
+  form: FormGroup;
 
   constructor(
     private http: HttpClient,
@@ -39,52 +31,82 @@ export class AdminComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log("CHAM HOI");
+    this.form = new FormGroup({
+      username: new FormControl(),
+      password: new FormControl(),
+      phone: new FormControl(),
+      email: new FormControl(),
+      jobName: new FormControl(),
+      groupName: new FormControl(),
+      permission: new FormControl(),
+      description: new FormControl(),
+      userid: new FormControl(),
+      jobId: new FormControl(),
+      groupId: new FormControl(),
+      permissionId: new FormControl(),
+    });
+    this.form.get('userid').valueChanges.subscribe(
+      next =>{
+        this.apiService.findAgent(next).subscribe(
+          next => {
+            let result = JSON.parse(JSON.stringify(next));
+            if (result.status == "success") this.userName = result.data.username;
+              else this.userName = "";
+          },
+          error => {
+            this.userName = "";
+          }
+        )
+      }
+    )
+    this.form.get('jobId').valueChanges.subscribe(
+      next =>{
+        this.apiService.findJob(next).subscribe(
+          next => {
+            let result = JSON.parse(JSON.stringify(next));
+            if (result.status == "success") this.jobName = result.data.jobname;
+              else this.jobName = "";
+          },
+          error =>{
+            this.jobName = "";
+          }
+        )
+      }
+    )
+    this.form.get('groupId').valueChanges.subscribe(
+      next =>{
+        this.apiService.findGroup(next).subscribe(
+          next => {
+            let result = JSON.parse(JSON.stringify(next));
+            if (result.status == "success") this.groupName = result.data.groupname;
+            else this.groupName = "";
+          },
+          error => {
+            this.groupName = "";
+          }
+        )
+      }
+    )
+    this.form.get('permissionId').valueChanges.subscribe(
+      next =>{
+        this.apiService.findPermission(next).subscribe(
+          next => {
+            let result = JSON.parse(JSON.stringify(next));
+            if (result.status == "success") this.permission = result.data.permission;
+            else this.permission = "";
+          },
+          error =>{
+            this.permission = "";
+          }
+        )
+      }
+    )
   }
 
   setScene(x: number) {
     this.scene = x;
-    this.header = "ADMIN";
-  }
-
-  createAgent() {
-    /*let data = this.api.createAgent(this.username, this.password, this.phone, this.email)
-      .subscribe(
-      next => {
-        console.log(next);
-      },
-      error => {
-        console.log(error);
-      }
-    );
-    console.log(data);*/
-  }
-
-  createJob() {
-    this.s = "jobname=" + this.jobname + "&description=" + this.description;
-    this.http.get<JSON>(this.url+"create_job?"+this.s).subscribe(data => {
-      this.header = "CAI GI VAY TROI";
-      console.log(data);
-      this.result = JSON.parse(JSON.stringify(data));
-      if (this.result.status == "success") {
-        this.header = "SUCCESS!";
-        this.jobname = "";
-        this.description = "";
-      }
-    });
-  }
-
-  createAgentJob() {
-    this.s = "userid=" + this.userid + "&jobid=" + this.jobid;
-    this.http.get<JSON>(this.url+"create_agent_job?"+this.s).subscribe(data => {
-      console.log(data);
-      this.result = JSON.parse(JSON.stringify(data));
-      if (this.result.status == "success") {
-        this.header = "SUCCESS!";
-        this.userid = "";
-        this.jobid = "";
-      }
-    });
+    this.message = "";
+    this.form.reset();
   }
 
   logOut() {
@@ -98,4 +120,58 @@ export class AdminComponent implements OnInit {
     });
   }
 
+  submit() {
+    this.message = "";
+
+    if (!this.form.valid) {
+      this.message = "Invalid input";
+      return;
+    }
+    console.log(this.form.value);
+    switch (this.scene) {
+      case 1: {
+        this.data = this.apiService.createAgent(this.form.value);
+        break;
+      }
+      case 2: {
+        this.data = this.apiService.createJob(this.form.value);
+        break;
+      }
+      case 3: {
+        this.data = this.apiService.createGroup(this.form.value);
+        break;
+      }
+      case 4: {
+        this.data = this.apiService.createPermission(this.form.value);
+        break;
+      }
+      case 5: {
+        this.data = this.apiService.createAgentJob(this.form.value);
+        break;
+      }
+      case 6: {
+        this.data = this.apiService.createJobGroup(this.form.value);
+        break;
+      }
+      case 7: {
+        this.data = this.apiService.createGroupPermission(this.form.value);
+        break;
+      }
+    }
+    this.form.reset();
+    this.data.subscribe(
+      next => {
+        console.log(next);
+        let result = JSON.parse(JSON.stringify(next));
+        // if (result.status == "fail") this.message = "FAIL!!!";
+        //     else this.message = result.message;
+        this.message = result.message;
+      },
+      error => {
+        console.log(error);
+        this.message = "FAIL!!!";
+      }
+    );
+    console.log(this.data);
+  }
 }

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {environment} from "../../environments/environment";
 import {Observable} from "rxjs";
-import {Login} from "../models/login.model";
 import {HttpClient} from "@angular/common/http";
 
 const accessTokenKey = 'accessToken';
@@ -14,8 +13,8 @@ export class AuthService {
     private http: HttpClient
   ) {}
 
-  logIn(loginData: Login): Observable<any> {
-    const url = environment.host + 'auth?username=' + loginData.username + "&password=" + loginData.password;
+  logIn(data): Observable<any> {
+    const url = environment.host + 'auth?username=' + data.username + "&password=" + data.password;
     return this.http.get<any>(url);
   }
 

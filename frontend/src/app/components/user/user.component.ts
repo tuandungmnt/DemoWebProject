@@ -10,7 +10,7 @@ import {ApiService} from "../../services/api.service";
 })
 export class UserComponent implements OnInit {
 
-  jobList: string[];
+  permissionList: string[];
 
   constructor(
     private authService: AuthService,
@@ -19,7 +19,7 @@ export class UserComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.showAgentJob();
+    this.showAgentPermission();
   }
 
   logOut() {
@@ -33,11 +33,11 @@ export class UserComponent implements OnInit {
     });
   }
 
-  showAgentJob() {
-    this.apiService.getAgentJobByToken().subscribe(
+  showAgentPermission() {
+    this.apiService.getAgentPermissionByToken().subscribe(
       next => {
         console.log(next);
-        this.jobList = JSON.parse(JSON.stringify(next)).data;
+        this.permissionList = JSON.parse(JSON.stringify(next)).data;
       },
       error => {
         console.log(error);

@@ -5,20 +5,20 @@
 </header>
 
 <div class="container">
+  <h1>Welcome!</h1>
 
-<h1>Welcome!</h1>
-
-<div class="play-container">
-  <p>
-    Enter UserName:
-    <input type="text" [(ngModel)]="username">
-  </p>
-  <p>
-    Enter Password:
-    <input type="text" [(ngModel)]="password">
-  </p>
-  <span (click)="logIn()">Login</span>
-  <p> {{error}}</p>
-</div>
+  <div class="play-container">
+    <form [formGroup]="loginForm" (ngSubmit)="logIn()">
+      <p>
+        <label for="username">Username: </label>
+        <input id="username" formControlName="username" type="text">
+      </p>
+      <p>
+        <label for="password">Password: </label>
+        <input id="password" formControlName="password" type="text">
+      </p>
+      <button type="submit" class="submitButton">Log in</button>
+    </form>
+  </div>
 </div>
 

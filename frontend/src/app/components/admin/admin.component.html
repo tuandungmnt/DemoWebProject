@@ -25,51 +25,155 @@
   </p>
 
   <div class = play-container>
-    <ng-template [ngIf]="scene == 1">
-      <p>
-        Enter Username:
-        <label>
-          <input type="text" [(ngModel)]="username">
-        </label>
-      </p>
-      <p>
-        Enter Password:
-        <input type="text" [(ngModel)]="password">
-      </p>
-      <p>
-        Enter Phone:
-        <input type="text" [(ngModel)]="phone">
-      </p>
-      <p>
-        Enter Email:
-        <input type="text" [(ngModel)]="email">
-      </p>
-      <span (click)="createAgent()">Create Agent</span>
-    </ng-template>
+    <form [formGroup]="form" (ngSubmit)="submit()">
 
 
-    <ng-template [ngIf]="scene == 2">
-      <p>
-        Enter Job Name:
-        <input type="text" [(ngModel)]="jobname">
-      </p>
-      <p>
-        Enter Description:
-        <input type="text" [(ngModel)]="description">
-      </p>
-      <span (click)="createJob()">Create Job</span>
-    </ng-template>
+      <ng-template [ngIf]="scene == 1">
+        <p>
+          <label for="username">Username: </label>
+          <input id="username" formControlName="username" type="text">
+        </p>
+        <p>
+          <label for="password">Password: </label>
+          <input id="password" formControlName="password" type="text">
+        </p>
+        <p>
+          <label for="phone">Phone: </label>
+          <input id="phone" formControlName="phone" type="text">
+        </p>
+        <p>
+          <label for="email">Email: </label>
+          <input id="email" formControlName="email" type="text">
+        </p>
+      </ng-template>
 
-    <ng-template [ngIf]="scene == 5">
-      <p>
-        Enter User ID:
-        <input type="text" [(ngModel)]="userid">
-      </p>
-      <p>
-        Enter Job ID:
-        <input type="text" [(ngModel)]="jobid">
-      </p>
-      <span (click)="createAgentJob()">Create Agent's Job</span>
-    </ng-template>
+
+      <ng-template [ngIf]="scene == 2">
+        <p>
+          <label for="jobName">Job Name: </label>
+          <input id="jobName" formControlName="jobName" type="text">
+        </p>
+        <p>
+          <label for="description">Description: </label>
+          <input id="description" formControlName="description" type="text">
+        </p>
+      </ng-template>
+
+
+      <ng-template [ngIf]="scene == 3">
+        <p>
+          <label for="groupName">Group Name: </label>
+          <input id="groupName" formControlName="groupName" type="text">
+        </p>
+        <p>
+          <label for="description">Description: </label>
+          <input id="description" formControlName="description" type="text">
+        </p>
+      </ng-template>
+
+
+      <ng-template [ngIf]="scene == 4">
+        <p>
+          <label for="permission">Permission: </label>
+          <input id="permission" formControlName="permission" type="text">
+        </p>
+        <p>
+          <label for="description">Description: </label>
+          <input id="description" formControlName="description" type="text">
+        </p>
+      </ng-template>
+
+
+      <ng-template [ngIf]="scene == 5">
+        <p>
+          <label for="userid">User Id: </label>
+          <input id="userid" formControlName="userid" type="text">
+          --- {{userName}}
+        </p>
+        <p>
+          <label for="jobId">Job Id: </label>
+          <input id="jobId" formControlName="jobId" type="text">
+          --- {{jobName}}
+        </p>
+      </ng-template>
+
+      <ng-template [ngIf]="scene == 6">
+        <p>
+          <label for="jobId">Job Id: </label>
+          <input id="jobId" formControlName="jobId" type="text">
+          --- {{jobName}}
+        </p>
+        <p>
+          <label for="groupId">Group Id: </label>
+          <input id="groupId" formControlName="groupId" type="text">
+          --- {{groupName}}
+        </p>
+      </ng-template>
+
+      <ng-template [ngIf]="scene == 7">
+        <p>
+          <label for="groupId">Group Id: </label>
+          <input id="groupId" formControlName="groupId" type="text">
+          --- {{groupName}}
+        </p>
+        <p>
+          <label for="permissionId">Permission Id: </label>
+          <input id="permissionId" formControlName="permissionId" type="text">
+          --- {{permission}}
+        </p>
+      </ng-template>
+      <button type="submit" class="submitButton">Submit</button>
+      <p>{{message}}</p>
+    </form>
   </div>
 </div>
+
+
+<!--<p>-->
+<!--  <label for="username">Username: </label>-->
+<!--  <input id="username" formControlName="username" type="text">-->
+<!--</p>-->
+<!--<p>-->
+<!--  <label for="password">Password: </label>-->
+<!--  <input id="password" formControlName="password" type="text">-->
+<!--</p>-->
+<!--<p>-->
+<!--  <label for="phone">Phone: </label>-->
+<!--  <input id="phone" formControlName="phone" type="text">-->
+<!--</p>-->
+<!--<p>-->
+<!--  <label for="email">Email: </label>-->
+<!--  <input id="email" formControlName="email" type="text">-->
+<!--</p>-->
+<!--<p>-->
+<!--  <label for="jobName">Job Name: </label>-->
+<!--  <input id="jobName" formControlName="jobName" type="text">-->
+<!--</p>-->
+<!--<p>-->
+<!--  <label for="groupName">Group Name: </label>-->
+<!--  <input id="groupName" formControlName="groupName" type="text">-->
+<!--</p>-->
+<!--<p>-->
+<!--  <label for="permission">Permission: </label>-->
+<!--  <input id="permission" formControlName="permission" type="text">-->
+<!--</p>-->
+<!--<p>-->
+<!--  <label for="description">Description: </label>-->
+<!--  <input id="description" formControlName="description" type="text">-->
+<!--</p>-->
+<!--<p>-->
+<!--  <label for="userid">User Id: </label>-->
+<!--  <input id="userid" formControlName="userid" type="text">-->
+<!--</p>-->
+<!--<p>-->
+<!--  <label for="jobId">Job Id: </label>-->
+<!--  <input id="jobId" formControlName="jobId" type="text">-->
+<!--</p>-->
+<!--<p>-->
+<!--  <label for="groupId">Group Id: </label>-->
+<!--  <input id="groupId" formControlName="groupId" type="text">-->
+<!--</p>-->
+<!--<p>-->
+<!--  <label for="permissionId">Permission Id: </label>-->
+<!--  <input id="permissionId" formControlName="permissionId" type="text">-->
+<!--</p>-->

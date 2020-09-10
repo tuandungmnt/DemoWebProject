@@ -24,7 +24,7 @@ Route::middleware([ApiMiddleware::class])->group(function () {
 
     Route::get('/api/find_agent', 'AgentController@findAgent');
 
-    Route::get('/api/get_agent_job_by_token','AgentController@getAgentJobbyToken');
+    Route::get('/api/get_agent_permission_by_token','AgentController@getAgentPermissionByToken');
 
     //Job
     Route::get('/api/create_job', 'JobController@createJob');
@@ -37,7 +37,7 @@ Route::middleware([ApiMiddleware::class])->group(function () {
     Route::get('/api/find_group', 'GroupController@findGroup');
 
     //Permission
-    Route::get('/api/create_permission', 'ControllerPermission@createPermission');
+    Route::get('/api/create_permission', 'PermissionController@createPermission');
 
     Route::get('/api/find_permission', 'PermissionController@findPermission');
 
