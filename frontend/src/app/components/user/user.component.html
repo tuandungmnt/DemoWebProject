@@ -3,14 +3,14 @@
     <a routerLink="/" class="logo">DEMO</a>
     <nav>
       <ul>
-        <li><butt (click)="logOut()">Log Out</butt></li>
+        <li><button (click)="logOut()">Log Out</button></li>
       </ul>
     </nav>
   </div>
 </header>
 
 <div class="container">
-  <h1> Your Permisson: </h1>
+  <h1> Your Permission: </h1>
   <div class="play-container">
     <li *ngFor="let x of permissionList">
       {{ x }}

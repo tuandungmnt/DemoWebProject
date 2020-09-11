@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import { Observable } from "rxjs";
 import {environment} from "../../environments/environment";
-import {AgentModel} from "../models/agent.model";
 
 @Injectable({
   providedIn: 'root'
@@ -11,11 +10,6 @@ export class ApiService {
   constructor(
     private http: HttpClient
   ) { }
-
-  getAgentPermissionByToken(): Observable<any> {
-    let url = environment.host + "get_agent_permission_by_token";
-    return this.http.get<any>(url);
-  }
 
   createAgent(data) : Observable <any> {
     let url = environment.host + "create_agent?username=" + data.username + "&password=" + data.password + "&phone=" + data.phone + "&email=" + data.email;

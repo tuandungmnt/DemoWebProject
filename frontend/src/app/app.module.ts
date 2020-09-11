@@ -13,6 +13,7 @@ import {ApiService} from "./services/api.service";
 import {TokenInterceptor} from "./interceptors/token.interceptor";
 import { UserComponent } from './components/user/user.component';
 import { AdminComponent } from './components/admin/admin.component';
+import {AuthGuard} from "./guards/auth.guard";
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { AdminComponent } from './components/admin/admin.component';
   providers: [
     AuthService,
     ApiService,
+    AuthGuard,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,

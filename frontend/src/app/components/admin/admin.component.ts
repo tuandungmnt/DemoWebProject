@@ -3,8 +3,12 @@ import {AuthService} from "../../services/auth.service";
 import {Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {ApiService} from "../../services/api.service";
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormControl, FormGroup} from "@angular/forms";
 import {Observable} from "rxjs";
+
+function delay(ms: number) {
+  return new Promise( resolve => setTimeout(resolve, ms) );
+}
 
 @Component({
   selector: 'app-admin',
@@ -56,6 +60,7 @@ export class AdminComponent implements OnInit {
           },
           error => {
             this.userName = "";
+            this.tokenError(error);
           }
         )
       }
@@ -70,6 +75,7 @@ export class AdminComponent implements OnInit {
           },
           error =>{
             this.jobName = "";
+            this.tokenError(error);
           }
         )
       }
@@ -84,6 +90,7 @@ export class AdminComponent implements OnInit {
           },
           error => {
             this.groupName = "";
+            this.tokenError(error);
           }
         )
       }
@@ -98,6 +105,7 @@ export class AdminComponent implements OnInit {
           },
           error =>{
             this.permission = "";
+            this.tokenError(error);
           }
         )
       }
@@ -118,7 +126,12 @@ export class AdminComponent implements OnInit {
       jobId: '',
       groupId: '',
       permissionId: '',
-    });
+    }, {emitEvent: false});
+
+    this.userName = "";
+    this.jobName = "";
+    this.groupName = "";
+    this.permission = "";
   }
 
   setScene(x: number) {
@@ -186,8 +199,19 @@ export class AdminComponent implements OnInit {
       error => {
         console.log(error);
         this.message = "ERROR!!!";
+        console.log(error.error.message);
+        this.tokenError(error).then(r => {});
       }
     );
     console.log(this.data);
+  }
+
+  async tokenError(error) {
+    if (error.error.message == "Token het han") {
+      console.log("Token het han mat roi, dang xuat thoi");
+      this.header = "TOKEN EXPIRES, PLEASE LOG IN AGAIN";
+      await delay(2000);
+      this.logOut();
+    }
   }
 }

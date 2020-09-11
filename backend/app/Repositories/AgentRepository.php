@@ -14,6 +14,7 @@ class AgentRepository extends EloquentRepository
     public function findAgentById($userId) {
         return $this->_model
             ->select(
+                Agent::_USERID,
                 Agent::_USERNAME,
                 Agent::_PASSWORD,
                 Agent::_EMAIL,

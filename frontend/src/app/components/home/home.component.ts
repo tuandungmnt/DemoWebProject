@@ -46,9 +46,7 @@ export class HomeComponent implements OnInit {
         this.authService.dataLogin(next);
         console.log(next);
 
-        let url: string = '';
-        if (this.loginForm.value.username == 'admin') url = '/admin'
-          else url = '/user';
+        let url: string = this.authService.getUrl();
         this.router.navigateByUrl(url).then(e => {
           if (e) {
             console.log("Navigation is successful!");

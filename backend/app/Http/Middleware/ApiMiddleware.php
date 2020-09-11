@@ -9,6 +9,7 @@ use Exception;
 use http\Message;
 use Illuminate\Http\Request;
 use \Firebase\JWT\JWT;
+use Illuminate\Support\Arr;
 
 
 class ApiMiddleware
@@ -17,10 +18,25 @@ class ApiMiddleware
         $user = $this->verifyToken($request);
         if (!$user) {
             $permissionDenied = [
-                'message' => 'Permission denied'
+                'message' => 'Token không hợp lệ'
             ];
             return response()->json($permissionDenied, 401);
         }
+
+        if ($user['username'] != 'admin') {
+            $permissionDenied = [
+                'message' => 'Người dùng không có quyền'
+            ];
+            return response()->json($permissionDenied, 401);
+        }
+
+        if ($user['validateTime'] < time()) {
+            $permissionDenied = [
+                'message' => 'Token het han'
+            ];
+            return response()->json($permissionDenied, 401);
+        }
+
         $request->attributes->add(['user' => $user]);
         $request->auth = $user;
         return $next($request);

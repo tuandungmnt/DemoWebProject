@@ -34,14 +34,6 @@ export class UserComponent implements OnInit {
   }
 
   showAgentPermission() {
-    this.apiService.getAgentPermissionByToken().subscribe(
-      next => {
-        console.log(next);
-        this.permissionList = JSON.parse(JSON.stringify(next)).data;
-      },
-      error => {
-        console.log(error);
-      }
-    );
+    this.permissionList = this.authService.getPermissions();
   }
 }
