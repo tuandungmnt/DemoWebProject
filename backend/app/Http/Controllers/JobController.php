@@ -30,6 +30,7 @@ class JobController extends Controller
         ];
         $this->validate($this->request, $rules);
 
+        $id = null;
         $jobName = $this->request->input(Job::_JOBNAME);
         $description = $this->request->input(Job::_DESCRIPTION);
 
@@ -42,12 +43,12 @@ class JobController extends Controller
             Job::_JOBNAME => $jobName,
             Job::_DESCRIPTION => $description,
         ];
-        $this->jobRepo->insert($job);
-        $this->message = 'Tạo thành công';
+        $id = $this->jobRepo->insertGetId($job);
+        $this->message = 'Tạo thành công, id của công việc là '."$id";
         $this->status = 'success';
 
         next:
-        return $this->responseData();
+        return $this->responseData($id);
     }
 
     /**

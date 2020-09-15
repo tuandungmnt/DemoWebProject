@@ -1,19 +1,23 @@
-<header>
-  <div class="container">
-    <a routerLink="/" class="logo">DEMO</a>
-    <nav>
-      <ul>
-        <li><button (click)="logOut()">Log Out</button></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+<app-layout>
+  <router-outlet>
+    <header>
+      <div class="container">
+        <a routerLink="/" class="logo">DEMO</a>
+        <nav>
+          <ul>
+            <li><button (click)="logOut()">Log Out</button></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
-<div class="container">
-  <h1> Your Permission: </h1>
-  <div class="play-container">
-    <li *ngFor="let x of permissionList">
-      {{ x }}
-    </li>
-  </div>
-</div>
+    <div class="container">
+      <h1> Your Permission: </h1>
+      <div class="play-container">
+        <li *ngFor="let x of permissionList">
+          {{ x }}
+        </li>
+      </div>
+    </div>
+  </router-outlet>
+</app-layout>

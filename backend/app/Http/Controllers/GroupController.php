@@ -30,6 +30,7 @@ class GroupController extends Controller
         ];
         $this->validate($this->request, $rules);
 
+        $id = null;
         $groupName = $this->request->input(Group::_GROUPNAME);
         $description = $this->request->input(Group::_DESCRIPTION);
 
@@ -42,12 +43,12 @@ class GroupController extends Controller
             Group::_GROUPNAME => $groupName,
             Group::_DESCRIPTION => $description,
         ];
-        $this->groupRepo->insert($group);
-        $this->message = 'Tạo nhóm thành công';
+        $id = $this->groupRepo->insertGetId($group);
+        $this->message = 'Tạo nhóm thành công, id nhóm là '."$id";
         $this->status = 'success';
 
         next:
-        return $this->responseData();
+        return $this->responseData($id);
     }
 
     /**

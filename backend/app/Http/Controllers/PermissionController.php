@@ -30,6 +30,7 @@ class PermissionController extends Controller
         ];
         $this->validate($this->request, $rules);
 
+        $id = null;
         $permission = $this->request->input(Permission::_PERMISSION);
         $description = $this->request->input(Permission::_DESCRIPTION);
 
@@ -42,12 +43,12 @@ class PermissionController extends Controller
             Permission::_PERMISSION => $permission,
             Permission::_DESCRIPTION => $description,
         ];
-        $this->permissionRepo->insert($job);
-        $this->message = 'Tạo thành công';
+        $id = $this->permissionRepo->insertGetId($job);
+        $this->message = 'Tạo thành công, quyền có id là '."$id";
         $this->status = 'success';
 
         next:
-        return $this->responseData();
+        return $this->responseData($id);
     }
 
     /**

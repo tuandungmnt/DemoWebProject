@@ -24,6 +24,8 @@ Route::middleware([ApiMiddleware::class])->group(function () {
 
     Route::get('/api/find_agent', 'AgentController@findAgent');
 
+    Route::get('/api/get_all_agent', 'AgentController@getAllAgent');
+
     //Job
     Route::get('/api/create_job', 'JobController@createJob');
 

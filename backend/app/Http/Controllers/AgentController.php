@@ -33,6 +33,7 @@ class AgentController extends Controller
 
         $this->validate($this->request, $rules);
 
+        $id = null;
         $username = $this->request->input(Agent::_USERNAME);
         $password = $this->request->input(Agent::_PASSWORD);
         $phone = $this->request->input(Agent::_PHONE);
@@ -64,13 +65,13 @@ class AgentController extends Controller
             Agent::_STATUS => 1,
         ];
 
-        $this->agentRepo->insert($agent);
+        $id = $this->agentRepo->insertGetId($agent);
 
-        $this->message = 'Tạo thành công';
+        $this->message = 'Tạo thành công, id của người dùng là '."$id";
         $this->status = 'success';
 
         next:
-        return $this->responseData();
+        return $this->responseData($id);
     }
     /**
      * @throws ValidationException
@@ -91,6 +92,11 @@ class AgentController extends Controller
         $this->message = 'Lấy thông tin thành công';
         $this->status = 'success';
         next:
+        return $this->responseData($data);
+    }
+
+    public function getAllAgent() {
+        $data = $this->agentRepo->getAll();
         return $this->responseData($data);
     }
 }

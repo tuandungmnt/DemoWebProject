@@ -67,3 +67,51 @@ span {
   background: #3caea3;
   color: black;
 }
+
+/*nb-layout{*/
+/*  width:100%;*/
+/*  height:100%;*/
+/*}*/
+/*nb-layout-column:first-child {*/
+/*  flex: 1 !important;*/
+/*  background: #e3e6f9;*/
+/*}*/
+/*nb-layout-column:last-child {*/
+/*  flex: 4     !important;*/
+/*  background: #f4f4f7;*/
+/*}*/
+
+.head {
+  margin: 0;
+  margin-left: 10px;
+  color: #173f5f;
+}
+
+.app-header-fixed {
+  padding-top: 50px;
+}
+
+.app-header-fixed .app-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.app {
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+}
+
+.app:before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+  display: block;
+  width: inherit;
+  background-color: #f0f3f4;
+  border: inherit;
+  content: "";
+}
+

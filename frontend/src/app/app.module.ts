@@ -1,3 +1,4 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -14,6 +15,12 @@ import {TokenInterceptor} from "./interceptors/token.interceptor";
 import { UserComponent } from './components/user/user.component';
 import { AdminComponent } from './components/admin/admin.component';
 import {AuthGuard} from "./guards/auth.guard";
+import {NbCardModule, NbLayoutModule, NbMenuModule, NbThemeModule} from "@nebular/theme";
+import { LayoutComponent } from './layout/layout/layout.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { NbEvaIconsModule } from '@nebular/eva-icons';
+import { HeaderComponent } from './layout/header/header.component';
+import { NavComponent } from './layout/nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -22,15 +29,24 @@ import {AuthGuard} from "./guards/auth.guard";
     ListComponent,
     FormComponent,
     UserComponent,
-    AdminComponent
+    AdminComponent,
+    LayoutComponent,
+    HeaderComponent,
+    NavComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        FormsModule,
-        HttpClientModule,
-        ReactiveFormsModule,
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    NbLayoutModule,
+    NoopAnimationsModule,
+    NbThemeModule.forRoot({name: 'default'}),
+    NbEvaIconsModule,
+    NbCardModule,
+    NbMenuModule,
+  ],
   providers: [
     AuthService,
     ApiService,
