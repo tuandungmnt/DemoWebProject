@@ -42,7 +42,7 @@ button {
   font-weight: normal;
   cursor: pointer;
   color: white;
-  padding: 0.8em 2.5em;
+  padding: 0.5em 2.5em;
   margin: 0 auto;
   border: none;
 }
@@ -81,37 +81,82 @@ span {
 /*  background: #f4f4f7;*/
 /*}*/
 
-.head {
-  margin: 0;
-  margin-left: 10px;
-  color: #173f5f;
-}
+/*.head {*/
+/*  margin: 0;*/
+/*  margin-left: 10px;*/
+/*  color: #173f5f;*/
+/*}*/
 
-.app-header-fixed {
-  padding-top: 50px;
-}
+/*.app-header-fixed {*/
+/*  padding-top: 50px;*/
+/*}*/
 
-.app-header-fixed .app-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
-.app {
-  position: relative;
-  width: 100%;
-  height: auto;
-  min-height: 100%;
-}
+/*.app-header-fixed .app-header {*/
+/*  position: fixed;*/
+/*  top: 0;*/
+/*  width: 100%;*/
+/*}*/
+/*.app {*/
+/*  position: relative;*/
+/*  width: 100%;*/
+/*  height: auto;*/
+/*  min-height: 100%;*/
+/*}*/
 
-.app:before {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  z-index: -1;
-  display: block;
-  width: inherit;
-  background-color: #f0f3f4;
-  border: inherit;
-  content: "";
-}
+/*.app:before {*/
+/*  position: absolute;*/
+/*  top: 0;*/
+/*  bottom: 0;*/
+/*  z-index: -1;*/
+/*  display: block;*/
+/*  width: inherit;*/
+/*  background-color: #f0f3f4;*/
+/*  border: inherit;*/
+/*  content: "";*/
+/*}*/
+
+/*.navbar {*/
+/*  margin: 0;*/
+/*  border-width: 0;*/
+/*  border-radius: 0;*/
+/*}*/
+
+/*.app-header {*/
+/*  z-index: 1025;*/
+/*  border-radius: 0;*/
+/*}*/
+
+/*.app-aside {*/
+/*  float: left;*/
+/*}*/
+
+/*.app-aside:before {*/
+/*  position: absolute;*/
+/*  top: 0;*/
+/*  bottom: 0;*/
+/*  z-index: -1;*/
+/*  width: inherit;*/
+/*  background-color: inherit;*/
+/*  border: inherit;*/
+/*  content: "";*/
+/*}*/
+
+/*.app-content {*/
+/*  height: 100%;*/
+/*}*/
+
+/*.app-content:before,*/
+/*.app-content:after {*/
+/*  display: table;*/
+/*  content: " ";*/
+/*}*/
+
+/*.app-content:after {*/
+/*  clear: both;*/
+/*}*/
+
+/*.bg-dark {*/
+/*  color: #a6a8b1;*/
+/*  background-color: #3a3f51;*/
+/*}*/
 
